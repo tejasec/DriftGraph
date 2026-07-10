@@ -1,1 +1,1 @@
-# DashNode
+# DriftGraph - GraphRAG
