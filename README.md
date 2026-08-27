@@ -1,10 +1,10 @@
 # Drift Graph
 
-**Reconstruct any knowledge graph using only the embeddings of your notes** — streamed into your browser as a live, explorable web of ideas.
+**Reconstruct any knowledge graph using only the embeddings of your notes** — streamed into browser as a live, explorable web of ideas.
 
 Drift Graph is a local-first research project that turns a folder of plain Markdown notes into a fully connected **knowledge graph**. It extracts the *subjects* of your notes with a lightweight AI model, embeds every sentence into a dense vector space, and then lets an on-device LLM discover the entities and relationships hidden between them. The result is shown in your browser: every note *drifts* into the graph.
 
-**Notes in, Drift out.** No sign-up, no cloud, no install beyond Python and Ollama — just open your notes.
+**Notes in, Drift out.** No sign-up, no cloud, no install beyond Python and Ollama.
 
 ## ✨ Features
 
