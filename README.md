@@ -2,13 +2,12 @@
 
 **Reconstruct any knowledge graph using only the embeddings of your notes** — streamed into browser as a live, explorable web of ideas.
 
-Drift Graph is a local-first research project that turns a folder of plain Markdown notes into a fully connected **knowledge graph**. It extracts the *subjects* of your notes with a lightweight AI model, embeds every sentence into a dense vector space, and then lets an on-device LLM discover the entities and relationships hidden between them. The result is shown in your browser: every note *drifts* into the graph.
+Drift Graph is a local-first research project that turns a folder of plain Markdown notes (Or Digital Notes) into a fully connected **knowledge graph**. It extracts the *subjects* of your notes with a lightweight AI model, embeds every sentence into a dense vector space, and then lets an on-device LLM discover the entities and relationships hidden between them. The result is shown in your browser: every note *drifts* into the graph.
 
 **Notes in, Drift out.** No sign-up, no cloud, no install beyond Python and Ollama.
 
-## ✨ Features
-
-- **Local-first, private by design** — no accounts, no cloud dependency; your notes and graph stay on your machine (SQLite).
+## ✨ Features (To be Added)
+- **Local-first and private** — no accounts, no cloud dependency; your notes and graph stay on your machine (SQLite).
 - **Automatic knowledge graph generation** — entities and relationships are extracted from your notes without manual linking.
 - **Relationship-aware notes** — notes link to each other semantically, not just by exact keyword match.
 - **Semantic linking via lightweight embeddings** — small SBERT models (`all-MiniLM-L6-v2`) run on CPU, no GPU required.
