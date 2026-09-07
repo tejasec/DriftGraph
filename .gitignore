@@ -1,0 +1,31 @@
+.aider*
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Python caches
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Runtime data artifacts (rebuilt on `python -m driftgraph.build`)
+data/*.db
+data/*.db-*
+data/*.index
+data/*.npy
+data/exports/
+
+# Env / secrets
+.env
+.env.*
+!.env.example
