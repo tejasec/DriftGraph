@@ -56,6 +56,7 @@ class GlobalSearchEngine:
         llm_base_url: str = "http://localhost:11434",
         temperature: float = 0.2,
         timeout: float = 45.0,
+        max_tokens: Optional[int] = None,
         llm_provider: Optional[str] = None,
         llm_api_key: Optional[str] = None,
     ):
@@ -67,6 +68,7 @@ class GlobalSearchEngine:
         self.llm_api_key = llm_api_key or config.llm.get_api_key()
         self.temperature = temperature
         self.timeout = timeout
+        self.max_tokens = max_tokens
 
     async def search(self, query: str, community_level: int = 0) -> QueryResponse:
         """Execute Global GraphRAG search."""
@@ -143,6 +145,8 @@ class GlobalSearchEngine:
             "options": {"temperature": self.temperature},
             "stream": False
         }
+        if self.max_tokens and self.max_tokens > 0:
+            payload["options"]["num_predict"] = self.max_tokens
         base_url = str(self.llm_base_url).rstrip("/")
         if base_url.endswith("/v1"):
             base_url = base_url[:-3]

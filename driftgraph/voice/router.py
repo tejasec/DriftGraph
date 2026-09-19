@@ -10,6 +10,7 @@ Voice query & recording pipeline:
 from __future__ import annotations
 
 import asyncio
+import os
 from datetime import date
 from pathlib import Path
 from typing import Optional, List, Dict, Any

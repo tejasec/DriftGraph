@@ -31,6 +31,7 @@ class QueryEngine:
         hybrid_alpha: float = 0.5,
         llm_temperature: float = 0.1,
         llm_timeout: float = 30.0,
+        llm_max_tokens: Optional[int] = None,
         llm_provider: Optional[str] = None,
         llm_api_key: Optional[str] = None,
     ):
@@ -49,6 +50,7 @@ class QueryEngine:
             llm_base_url=llm_base_url,
             temperature=llm_temperature,
             timeout=llm_timeout,
+            max_tokens=llm_max_tokens,
             llm_provider=self.llm_provider,
             llm_api_key=self.llm_api_key
         )
@@ -58,6 +60,7 @@ class QueryEngine:
             llm_base_url=llm_base_url,
             temperature=llm_temperature,
             timeout=llm_timeout,
+            max_tokens=llm_max_tokens,
             llm_provider=self.llm_provider,
             llm_api_key=self.llm_api_key
         )

@@ -126,6 +126,8 @@ async def run_query(query_text: str, mode: str = "auto"):
         top_k=config.retrieval.top_k,
         hybrid_alpha=config.retrieval.hybrid_alpha,
         llm_temperature=config.llm.temperature,
+        llm_timeout=config.llm.timeout,
+        llm_max_tokens=config.llm.max_tokens,
         llm_provider=config.llm.provider,
         llm_api_key=config.llm.get_api_key()
     )

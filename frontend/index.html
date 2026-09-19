@@ -4414,6 +4414,34 @@ table.ocr-table th {
     return graphWorker;
   }
 
+  function setupGraphResizeObserver() {
+    const graphWrap = $(".graph-canvas-wrap");
+    if (!graphWrap || !window.ResizeObserver || window._graphResizeObserver) return;
+
+    let lastObservedW = 0;
+    let lastObservedH = 0;
+
+    window._graphResizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        const newWidth = Math.floor(entry.contentRect.width);
+        const newHeight = Math.floor(entry.contentRect.height);
+        if (newWidth > 50 && newHeight > 50) {
+          if (Math.abs(newWidth - lastObservedW) > 2 || Math.abs(newHeight - lastObservedH) > 2) {
+            lastObservedW = newWidth;
+            lastObservedH = newHeight;
+            if (isGalaxyReady()) {
+              window.galaxyEngine.resize(newWidth, newHeight, false);
+            }
+            if (isCyReady()) {
+              window.cy.resize();
+            }
+          }
+        }
+      }
+    });
+    window._graphResizeObserver.observe(graphWrap);
+  }
+
   function initGraph() {
     const cyContainer = $("#cy");
     const galaxyContainer = $("#galaxyGraphContainer");
@@ -4558,34 +4586,6 @@ table.ocr-table th {
         });
       });
     }
-
-  function setupGraphResizeObserver() {
-    const graphWrap = $(".graph-canvas-wrap");
-    if (!graphWrap || !window.ResizeObserver || window._graphResizeObserver) return;
-
-    let lastObservedW = 0;
-    let lastObservedH = 0;
-
-    window._graphResizeObserver = new ResizeObserver((entries) => {
-      for (const entry of entries) {
-        const newWidth = Math.floor(entry.contentRect.width);
-        const newHeight = Math.floor(entry.contentRect.height);
-        if (newWidth > 50 && newHeight > 50) {
-          if (Math.abs(newWidth - lastObservedW) > 2 || Math.abs(newHeight - lastObservedH) > 2) {
-            lastObservedW = newWidth;
-            lastObservedH = newHeight;
-            if (isGalaxyReady()) {
-              window.galaxyEngine.resize(newWidth, newHeight, false);
-            }
-            if (isCyReady()) {
-              window.cy.resize();
-            }
-          }
-        }
-      }
-    });
-    window._graphResizeObserver.observe(graphWrap);
-  }
 
   // Automatically synchronize Cytoscape and Galaxy viewports whenever graph container dimensions change
   setupGraphResizeObserver();

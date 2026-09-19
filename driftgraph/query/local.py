@@ -46,6 +46,7 @@ class LocalSearchEngine:
         llm_base_url: str = "http://localhost:11434",
         temperature: float = 0.1,
         timeout: float = 30.0,
+        max_tokens: Optional[int] = None,
         dual_level: Optional[bool] = None,
         llm_provider: Optional[str] = None,
         llm_api_key: Optional[str] = None,
@@ -59,6 +60,7 @@ class LocalSearchEngine:
         self.llm_api_key = llm_api_key or config.llm.get_api_key()
         self.temperature = temperature
         self.timeout = timeout
+        self.max_tokens = max_tokens
 
         env_dual = os.environ.get("DRIFTGRAPH_DUAL_LEVEL", "1") != "0"
         cfg_dual = getattr(config.retrieval, "dual_level", True)
@@ -240,6 +242,8 @@ class LocalSearchEngine:
             "options": {"temperature": self.temperature},
             "stream": False
         }
+        if self.max_tokens and self.max_tokens > 0:
+            payload["options"]["num_predict"] = self.max_tokens
         base_url = str(self.llm_base_url).rstrip("/")
         if base_url.endswith("/v1"):
             base_url = base_url[:-3]

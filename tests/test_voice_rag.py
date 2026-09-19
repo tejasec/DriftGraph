@@ -167,6 +167,29 @@ async def test_voice_conversational_memory_multiturn(sample_graph_storage):
     assert session.turns[2].content == "How does attention work?"
 
 
+@pytest.mark.asyncio
+async def test_voice_ask_null_voice_id_env_fallback(client):
+    """POST /api/voice/ask with explicit voice_id=null must fall back via os.getenv (regression: missing import os)."""
+    fake_mp3 = b"\xff\xfb\x90\x44\x00\x00\x00\x00\x00"
+    with patch.object(ElevenLabsClient, "text_to_speech_bytes", new_callable=AsyncMock) as mock_tts:
+        mock_tts.return_value = fake_mp3
+        with patch.dict("os.environ", {"ELEVENLABS_API_KEY": "test_key_123", "ELEVENLABS_VOICE_ID": "custom_env_voice"}):
+            payload = {
+                "query": "Voice id fallback",
+                "quick_mode": True,
+                "voice_id": None,  # force the request.voice_id or os.getenv(...) branch
+                "session_id": "test_null_voice_session",
+            }
+            resp = await client.post("/api/voice/ask", json=payload)
+            assert resp.status_code == 200, f"Error: {resp.text}"
+
+            data = resp.json()
+            assert data["audio_url"] is not None
+            # TTS must be invoked with the env-configured voice id fallback
+            assert mock_tts.await_count == 1
+            assert mock_tts.await_args.kwargs["voice_id"] == "custom_env_voice"
+
+
 def test_frontend_voice_integration_contracts():
     """Verify frontend/index.html and galaxy-engine.js have the Voice RAG integration contracts."""
     html_path = Path(__file__).parent.parent / "frontend" / "index.html"

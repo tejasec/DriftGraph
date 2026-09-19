@@ -374,6 +374,37 @@ async def upload_documents_batch(
                 saved_path = upload_dir / f"{Path(fn).stem}_{digest}{sfx}"
                 await asyncio.to_thread(saved_path.write_bytes, content)
 
+                if sfx in [".md", ".markdown", ".txt"]:
+                    text_content = content.decode("utf-8", errors="replace").strip()
+                    if not text_content:
+                        return {"filename": fn, "status": "failed", "error": "Empty file"}
+                    doc_title = Path(fn).stem.replace("_", " ").replace("-", " ").title()
+                    stamp = _slugify(doc_title)[:40]
+                    note_fn = f"{stamp}_{digest[:8]}_{date.today().isoformat()}.md"
+                    note_p = notes_dir / note_fn
+
+                    markdown = (
+                        "---\n"
+                        f"title: {doc_title}\n"
+                        f"date: {date.today().isoformat()}\n"
+                        "tags: [\"upload\", \"text\"]\n"
+                        "source_type: markdown\n"
+                        "---\n\n"
+                        f"{text_content}\n"
+                    )
+                    await asyncio.to_thread(note_p.write_text, markdown, encoding="utf-8")
+
+                    return {
+                        "filename": fn,
+                        "saved_note": note_fn,
+                        "status": "success",
+                        "pages_count": 1,
+                        "mean_confidence": 100.0,
+                        "errors_count": 0,
+                        "tables_count": 0,
+                        "title": doc_title,
+                    }
+
                 pages = await ocr_document(
                     saved_path,
                     cache_dir=Path(config.ocr.cache_dir),

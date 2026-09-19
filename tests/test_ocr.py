@@ -529,6 +529,51 @@ async def test_api_batch_upload_and_info(scanned_image_fixture: Path, tmp_path: 
 
 
 @pytest.mark.asyncio
+async def test_api_batch_upload_text_fastpath(tmp_path: Path, monkeypatch):
+    """/api/ingest/upload-batch must handle .md/.markdown/.txt without OCR (regression)."""
+    notes_dir = tmp_path / "notes"
+    data_dir = tmp_path / "data"
+    notes_dir.mkdir(parents=True, exist_ok=True)
+    data_dir.mkdir(parents=True, exist_ok=True)
+    monkeypatch.setattr(config.paths, "notes_dir", str(notes_dir))
+    monkeypatch.setattr(config.paths, "data_dir", str(data_dir))
+
+    transport = ASGITransport(app=app)
+    async with AsyncClient(transport=transport, base_url="http://test") as client:
+        with open(tmp_path / "sample.md", "w", encoding="utf-8") as f:
+            f.write("# DriftGraph Architecture\n\nSemantic chunking over Markdown notes.\n")
+        with open(tmp_path / "sample.txt", "w", encoding="utf-8") as f:
+            f.write("Plain text note content for batch upload.\n")
+
+        files = [
+            ("files", ("sample.md", (tmp_path / "sample.md").read_bytes(), "text/markdown")),
+            ("files", ("sample.txt", (tmp_path / "sample.txt").read_bytes(), "text/plain")),
+        ]
+        batch_resp = await client.post("/api/ingest/upload-batch", files=files)
+
+        assert batch_resp.status_code == 200
+        batch_res = batch_resp.json()
+        assert batch_res["total_documents"] == 2
+        assert batch_res["successful_documents"] == 2
+        assert batch_res["failed_documents"] == 0
+
+        for doc in batch_res["documents"]:
+            assert doc["status"] == "success"
+            assert doc["pages_count"] == 1
+            assert doc["mean_confidence"] == 100.0
+            assert doc["saved_note"]
+
+        # Notes written to disk as markdown frontmatter, no OCR artifacts
+        saved = sorted((doc for doc in batch_res["documents"] if doc["saved_note"]), key=lambda d: d["saved_note"])
+        saved_paths = [notes_dir / doc["saved_note"] for doc in saved]
+        assert all(p.exists() for p in saved_paths)
+        joined = "\n".join(p.read_text(encoding="utf-8") for p in saved_paths)
+        assert "source_type: markdown" in joined
+        assert "DriftGraph Architecture" in joined
+        assert "Plain text note content" in joined
+
+
+@pytest.mark.asyncio
 async def test_api_ocr_correct_endpoint(tmp_path: Path, monkeypatch):
     """Test inline OCR correction endpoint /api/ingest/ocr/correct."""
     notes_dir = tmp_path / "notes"
