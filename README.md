@@ -26,7 +26,7 @@ DriftGraph is a local-first research platform and desktop application that turns
   - Peripheral singletons and leaf nodes distributed in sunflower orbital shells using Fermat's golden spiral ($\theta = n \times 137.508^\circ$).
   - Scoped cursor physics: full-screen ambient radial repulsion on the Hero Landing screen; strictly disabled on the Explorer canvas for zero cursor-scatter and instant hover hit-testing.
   - Dual-level abstraction: Toggle seamlessly between Level 0 (Leiden Communities) and Level 1 (Entities & Concepts).
-- **🎨 Categorical Semantic Color Coding** — Multi-hue palette mapped deterministically to detected Leiden communities (`#38bdf8` Electric Cyan, `#34d399` Vibrant Emerald, `#a855f7` Rich Purple, `#fbbf24` Warm Amber, `#f43f5e` Soft Coral, `#94a3b8` Slate Blue-Gray) with degree-modulated luminance attenuation and radiant hub perimeter auras.
+- **🎨 Categorical Semantic Color Coding** — Multi-hue palette mapped deterministically to detected Leiden communities
 - **⚡ Starburst Hover & Proximity Labeling** — Hovering over any node instantly illuminates its 1-hop incoming and outgoing connections into colored vector lines, spotlights neighboring nodes, and renders a clean monospaced proximity pill (`JetBrains Mono`) with zero resting clutter.
 - **🧠 Automated Knowledge Graph Assembly** — Entities, concepts, and multi-relational edges are extracted automatically from raw prose via local Ollama (`llama3.1:8b-instruct`) or hosted OpenAI-compatible APIs without manual tagging.
 - **🔗 Latent Semantic Auto-Linking** — Notes link to each other dynamically whenever cosine similarity across Sentence-BERT embeddings exceeds a configurable threshold ($\ge 0.70$), eliminating manual `[[wiki-links]]`.
@@ -293,29 +293,6 @@ pyproject.toml              # Build specifications, package dependencies, and CL
 
 ---
 
-## 🌐 REST API Reference
-
-| Method | Endpoint | Description | Query / Body Payload | Response |
-| :--- | :--- | :--- | :--- | :--- |
-| `GET` | `/api/graph` | Fetch graph nodes and edges formatted for visualization | `?threshold=0.70&level=1` | `{"nodes": [...], "edges": [...]}` |
-| `GET` | `/api/graph/stats` | Retrieve node count, edge count, and community metrics | *None* | `{"node_count": int, "edge_count": int, "community_count": int}` |
-| `GET` | `/api/graph/communities` | Retrieve hierarchical Leiden community summaries | *None* | `[{"id": int, "name": str, "summary": str, "node_ids": [...]}]` |
-| `GET` | `/api/graph/analytics` | Graph Intelligence: God nodes, bridges, boundary questions | *None* | `{"god_nodes": [...], "bridges": [...], "suggested_questions": [...]}` |
-| `POST` | `/api/graph/analytics/path` | Trace 2-hop navigation path between two concepts | `{"source": str, "target": str}` | `{"found": bool, "path": [...], "explanation": str}` |
-| `POST` | `/api/query` | Execute dual-mode GraphRAG question answering | `{"query": str, "mode": "auto"\|"global"\|"local"}` | `{"answer": str, "mode_used": str, "citations": [...]}` |
-| `POST` | `/api/voice/ask` | Voice Assistant: grounded query with audio synthesis | `{"query": str, "quick_mode": bool, "session_id": str}` | `{"answer": str, "audio_url": str, "cited_node_ids": [...]}` |
-| `GET` | `/api/voice/audio/{id}` | Stream synthesized ElevenLabs MP3 audio | *Path parameter* | `audio/mpeg` stream |
-| `POST` | `/api/ingest/upload` | Upload PDF or image document for OCR parsing & layout analysis | `multipart/form-data` (file) | `{"text": str, "confidence": float, "tables": [...]}` |
-| `POST` | `/api/classify` | Offline text taxonomy classification studio | `{"text": str}` | `{"top_category": str, "scores": {...}, "ascii_box": str}` |
-| `GET` | `/api/notes` | List all notes with word counts, tags, and previews | *None* | `[{"id": str, "title": str, "word_count": int, ...}]` |
-| `POST` | `/api/notes` | Create a new markdown note and trigger semantic auto-linking | `{"title": str, "content": str}` | `{"id": str, "title": str, "created_at": str}` |
-| `PUT` | `/api/notes/{id}` | Update note content and title | `{"title": str, "content": str}` | `{"id": str, "status": "updated"}` |
-| `DELETE` | `/api/notes/{id}` | Delete a note and remove associated graph edges | *Path parameter* | `{"status": "deleted", "id": str}` |
-| `GET` | `/api/export?format=` | Export graph in `json`, RDF `turtle` (`ttl`), `jsonld`, `csv`, or `markdown` | *Query parameter* | Raw serialization file attachment |
-| `GET` | `/api/status/diagnostics`| System health, model readiness, and Leiden diagnostics | *None* | `{"status": "healthy", "model": {...}, "physics": {...}}` |
-
----
-
 ## 📚 Research Foundation
 
 DriftGraph evaluates whether **lightweight, CPU-viable embedding models** (125M–220M parameters, 384 dimensions) can match or outperform heavy multi-billion-parameter cloud baselines on local knowledge graph generation, entity resolution, and Leiden community partitioning.
@@ -390,22 +367,9 @@ DriftGraph is continuously benchmarked across four dimensions:
 
 ---
 
-## 📄 License & Citation
+## 📄 License
 
 DriftGraph is licensed under the [MIT License](LICENSE).
-
-If you use DriftGraph in your academic research, please cite:
-
-```bibtex
-@misc{driftgraph2026,
-  author = {DriftGraph Research Team},
-  title = {DriftGraph: Local-First GraphRAG and Knowledge Graph Generation Using Lightweight Embeddings},
-  year = {2026},
-  publisher = {GitHub},
-  howpublished = {\url{https://github.com/your-username/drift-graph}}
-}
-```
-
 ---
 
 *Notes in, Drift out.*
