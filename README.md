@@ -21,10 +21,7 @@ DriftGraph is a local-first research platform and desktop application that turns
 ## ✨ Features
 
 - **🔒 Local-First & 100% Private** — No accounts, no cloud dependencies; your notes, embeddings, and graph stay entirely on your local machine in SQLite and FAISS.
-- **🌌 Obsidian-Style Galaxy Canvas & Dual-Level Cytoscape** — Custom layered HTML5 Canvas 2D engine (`ObsidianGalaxyEngine`) with Barnes-Hut Quadtree hit-testing running at a silky 60 FPS:
-  - Concentric core hubs clustered via force-directed spring physics.
-  - Peripheral singletons and leaf nodes distributed in sunflower orbital shells using Fermat's golden spiral ($\theta = n \times 137.508^\circ$).
-  - Scoped cursor physics: full-screen ambient radial repulsion on the Hero Landing screen; strictly disabled on the Explorer canvas for zero cursor-scatter and instant hover hit-testing.
+- **🌌 Obsidian-Style Galaxy Canvas & Dual-Level Cytoscape** — Custom layered HTML5 Canvas 2D engine (`ObsidianGalaxyEngine`) running at a 60 FPS:
   - Dual-level abstraction: Toggle seamlessly between Level 0 (Leiden Communities) and Level 1 (Entities & Concepts).
 - **🎨 Categorical Semantic Color Coding** — Multi-hue palette mapped deterministically to detected Leiden communities
 - **⚡ Starburst Hover & Proximity Labeling** — Hovering over any node instantly illuminates its 1-hop incoming and outgoing connections into colored vector lines, spotlights neighboring nodes, and renders a clean monospaced proximity pill (`JetBrains Mono`) with zero resting clutter.
