@@ -100,9 +100,6 @@ cd drift-graph
 # 2. Create a virtual environment and install (pip or uv)
 python -m venv .venv
 source .venv/bin/activate
-pip install -e ".[dev]"
-#   or, if you use uv:
-# uv venv && uv pip install -e ".[dev]"
 
 # 3. Pull a local LLM for extraction (match config.yaml -> llm.model)
 ollama pull llama3.1:8b-instruct-q4_K_M
