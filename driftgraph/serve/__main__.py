@@ -26,6 +26,7 @@ def main() -> None:
         host=args.host,
         port=args.port,
         reload=args.reload,
+        reload_excludes=["data/*", "*.db*", "*.db-journal", "*.db-wal", "*.db-shm", "*.index", "*.npy", "data/**"] if args.reload else None,
     )
 
 

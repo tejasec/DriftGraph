@@ -24,8 +24,10 @@ class HierarchicalSummaryResult(BaseModel):
 
 
 class SummaryConfig(BaseModel):
+    provider: str = "ollama"
     model: str = "llama3.1:8b-instruct-q4_K_M"
     base_url: str = "http://localhost:11434"
+    api_key: Optional[str] = None
     temperature: float = 0.2
     max_tokens: int = 1024
     timeout: int = 120

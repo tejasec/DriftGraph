@@ -20,8 +20,11 @@ class OllamaExtractionClient:
 
     def __init__(self, config: Optional[ExtractionConfig] = None):
         self.config = config or ExtractionConfig()
+        base_url = str(self.config.base_url).rstrip("/")
+        if base_url.endswith("/v1"):
+            base_url = base_url[:-3]
         self.client = httpx.AsyncClient(
-            base_url=self.config.base_url,
+            base_url=base_url,
             timeout=float(self.config.timeout)
         )
 

@@ -31,6 +31,14 @@ def clean_json_text(text: str) -> str:
     return text
 
 
+def _safe_float(value: Any, default: float) -> float:
+    """Coerce a value to float, falling back to default on non-numeric input."""
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return default
+
+
 def parse_llm_extraction_response(
     raw_response: str,
     chunk_id: str
@@ -43,6 +51,10 @@ def parse_llm_extraction_response(
         logger.warning("failed_to_parse_llm_json_fallback_heuristic", error=str(e), raw=raw_response[:200])
         return fallback_heuristic_extraction(raw_response, chunk_id)
 
+    if not isinstance(data, dict):
+        logger.warning("llm_json_not_an_object_fallback_heuristic", raw=raw_response[:200])
+        return fallback_heuristic_extraction(raw_response, chunk_id)
+
     entities: List[Entity] = []
     relations: List[Relation] = []
 
@@ -53,7 +65,7 @@ def parse_llm_extraction_response(
                 type=str(ent_data.get("type", "CONCEPT")).strip().upper(),
                 description=str(ent_data.get("description", "")).strip() if ent_data.get("description") else None,
                 source_chunk_id=chunk_id,
-                confidence=float(ent_data.get("confidence", 0.95))
+                confidence=_safe_float(ent_data.get("confidence"), 0.95)
             ))
 
     for rel_data in data.get("relations", []):
@@ -64,7 +76,7 @@ def parse_llm_extraction_response(
                 object=str(rel_data.get("object")).strip(),
                 description=str(rel_data.get("description", "")).strip() if rel_data.get("description") else None,
                 source_chunk_id=chunk_id,
-                confidence=float(rel_data.get("confidence", 0.90))
+                confidence=_safe_float(rel_data.get("confidence"), 0.90)
             ))
 
     return ExtractionResult(chunk_id=chunk_id, entities=entities, relations=relations)
@@ -81,11 +93,12 @@ def fallback_heuristic_extraction(text: str, chunk_id: str) -> ExtractionResult:
     # Extract bold terms **term** or `code`
     markup_terms = re.findall(r"\*\*([^*]+)\*\*|`([^`]+)`", text)
     for m in markup_terms:
+        is_code = bool(m[1])
         term = (m[0] or m[1]).strip()
         if len(term) > 2 and len(term) < 50:
             entities[term.lower()] = Entity(
                 name=term,
-                type="TECHNOLOGY" if "`" in term else "CONCEPT",
+                type="TECHNOLOGY" if is_code else "CONCEPT",
                 description=f"Extracted from {chunk_id}",
                 source_chunk_id=chunk_id,
                 confidence=0.8

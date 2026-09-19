@@ -63,6 +63,7 @@ async def parse_markdown_file(file_path: Path) -> Optional[Note]:
         tags=tags,
         date=date_val,
         source_file=str(file_path.resolve()),
+        source_type="markdown",
         extra={k: v for k, v in metadata_dict.items() if k not in ["title", "tags", "date"]}
     )
 
@@ -76,8 +77,8 @@ async def parse_markdown_file(file_path: Path) -> Optional[Note]:
     )
 
 
-async def parse_markdown_directory(directory_path: str | Path) -> List[Note]:
-    """Recursively discover and parse all markdown notes in a directory."""
+async def parse_markdown_directory(directory_path: str | Path, include_documents: bool = True) -> List[Note]:
+    """Recursively discover and parse all notes (Markdown and documents/PDFs) in a directory."""
     dir_p = Path(directory_path)
     if not dir_p.exists():
         return []
@@ -89,5 +90,17 @@ async def parse_markdown_directory(directory_path: str | Path) -> List[Note]:
         note = await parse_markdown_file(file_p)
         if note and note.content:
             notes.append(note)
+
+    if include_documents:
+        from driftgraph.ingest.ocr import process_document_to_note
+        doc_exts = {".pdf", ".png", ".jpg", ".jpeg", ".tiff", ".bmp"}
+        doc_files = [f for f in sorted(dir_p.rglob("*")) if f.is_file() and f.suffix.lower() in doc_exts]
+        for doc_file in doc_files:
+            try:
+                doc_note = await process_document_to_note(doc_file)
+                if doc_note and doc_note.content:
+                    notes.append(doc_note)
+            except Exception:
+                pass
 
     return notes

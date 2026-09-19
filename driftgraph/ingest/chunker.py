@@ -62,6 +62,7 @@ def chunk_note(
                         "title": note.metadata.title,
                         "tags": note.metadata.tags,
                         "date": note.metadata.date,
+                        "source_type": note.metadata.source_type,
                     }
                 )
                 chunks.append(chunk)
@@ -104,6 +105,7 @@ def chunk_note(
                     "title": note.metadata.title,
                     "tags": note.metadata.tags,
                     "date": note.metadata.date,
+                    "source_type": note.metadata.source_type,
                 }
             )
             chunks.append(chunk)

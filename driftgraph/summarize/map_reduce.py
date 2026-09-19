@@ -24,15 +24,39 @@ logger = structlog.get_logger(__name__)
 class CommunitySummarizer:
     """Performs hierarchical GraphRAG Map-Reduce summarization."""
 
-    def __init__(self, config: Optional[SummaryConfig] = None):
+    def __init__(self, config: Optional[SummaryConfig] = None, max_concurrency: int = 4):
         self.config = config or SummaryConfig()
+        self.max_concurrency = max_concurrency
+        base_url = str(self.config.base_url).rstrip("/")
+        if base_url.endswith("/v1"):
+            base_url = base_url[:-3]
         self.client = httpx.AsyncClient(
-            base_url=self.config.base_url,
+            base_url=base_url,
             timeout=float(self.config.timeout)
         )
 
     async def _call_llm(self, system_prompt: str, user_prompt: str) -> Optional[str]:
-        """Call local Ollama model."""
+        """Call LLM model (hosted OpenAI-compatible or local Ollama)."""
+        if self.config.provider == "openai_compatible":
+            from driftgraph.extract.api_client import call_chat_completion
+            api_key = self.config.api_key
+            if not api_key:
+                from driftgraph.config import config as app_config
+                api_key = app_config.llm.get_api_key()
+            return await call_chat_completion(
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_prompt}
+                ],
+                model=self.config.model,
+                base_url=self.config.base_url,
+                api_key=api_key,
+                temperature=self.config.temperature,
+                max_tokens=self.config.max_tokens,
+                timeout=float(self.config.timeout),
+                response_format={"type": "json_object"}
+            )
+
         payload = {
             "model": self.config.model,
             "messages": [
@@ -144,9 +168,14 @@ class CommunitySummarizer:
         """Execute full Map-Reduce pipeline over all communities."""
         nodes_lookup = {n.id: n for n in nodes}
 
-        # 1. Map Step: summarize all communities concurrently
-        tasks = [self.summarize_community(c, nodes_lookup, edges) for c in communities]
-        summaries = await asyncio.gather(*tasks)
+        # 1. Map Step: summarize all communities concurrently (bounded)
+        semaphore = asyncio.Semaphore(self.max_concurrency)
+
+        async def _bounded(c: Community) -> CommunitySummary:
+            async with semaphore:
+                return await self.summarize_community(c, nodes_lookup, edges)
+
+        summaries = await asyncio.gather(*(_bounded(c) for c in communities))
 
         # Update Community objects
         summary_map = {s.community_id: s for s in summaries}

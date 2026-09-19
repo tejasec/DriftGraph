@@ -4,11 +4,15 @@ CREATE TABLE IF NOT EXISTS notes (
     id TEXT PRIMARY KEY,
     title TEXT,
     source_file TEXT,
+    source_type TEXT DEFAULT 'markdown',
     date TEXT,
     tags TEXT,
     raw_content TEXT,
+    deleted_at TIMESTAMP DEFAULT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE INDEX IF NOT EXISTS idx_notes_deleted_at ON notes(deleted_at);
 
 CREATE TABLE IF NOT EXISTS chunks (
     id TEXT PRIMARY KEY,
@@ -32,6 +36,8 @@ CREATE TABLE IF NOT EXISTS nodes (
     community_levels TEXT,
     embedding_blob BLOB,
     provenance TEXT,
+    layout_x REAL,
+    layout_y REAL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -77,4 +83,11 @@ CREATE VIRTUAL TABLE IF NOT EXISTS communities_fts USING fts5(
     summary,
     themes,
     tokenize = 'porter unicode61'
+);
+
+-- Key/Value metadata (global summaries, build timestamps, etc.)
+CREATE TABLE IF NOT EXISTS graph_meta (
+    key TEXT PRIMARY KEY,
+    value TEXT,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

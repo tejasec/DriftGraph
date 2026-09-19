@@ -33,7 +33,18 @@ dependencies = [
     "numpy>=1.26.0",
     "leidenalg>=0.10.0",
     "python-louvain>=0.16.0",
+    "pytesseract>=0.3.10",
+    "pdf2image>=1.17.0",
+    "pillow>=10.0.0",
+    "opencv-python-headless>=4.8.0",
+    "pypdf>=4.0.0",
+    "python-multipart>=0.0.32",
+    "fa2-modified>=0.4",
+    "openai>=1.0.0",
 ]
+
+[tool.setuptools.packages.find]
+include = ["driftgraph*"]
 
 [project.optional-dependencies]
 dev = [

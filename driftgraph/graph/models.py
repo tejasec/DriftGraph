@@ -16,6 +16,8 @@ class Node(BaseModel):
     degree: int = 0
     community_id: Optional[int] = None
     community_levels: Dict[int, int] = Field(default_factory=dict)
+    layout_x: Optional[float] = None
+    layout_y: Optional[float] = None
     metadata: Dict[str, Any] = Field(default_factory=dict)
 
 

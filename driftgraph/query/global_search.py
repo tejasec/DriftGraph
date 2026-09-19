@@ -3,7 +3,6 @@ Global Search Engine: GraphRAG Map-Reduce query answering over hierarchical comm
 """
 
 from typing import List, Optional
-import json
 import httpx
 import structlog
 
@@ -54,11 +53,20 @@ class GlobalSearchEngine:
         self,
         storage: SQLiteStorage,
         llm_model: str = "llama3.1:8b-instruct-q4_K_M",
-        llm_base_url: str = "http://localhost:11434"
+        llm_base_url: str = "http://localhost:11434",
+        temperature: float = 0.2,
+        timeout: float = 45.0,
+        llm_provider: Optional[str] = None,
+        llm_api_key: Optional[str] = None,
     ):
+        from driftgraph.config import config
         self.storage = storage
         self.llm_model = llm_model
         self.llm_base_url = llm_base_url
+        self.llm_provider = llm_provider or getattr(config.llm, "provider", "ollama")
+        self.llm_api_key = llm_api_key or config.llm.get_api_key()
+        self.temperature = temperature
+        self.timeout = timeout
 
     async def search(self, query: str, community_level: int = 0) -> QueryResponse:
         """Execute Global GraphRAG search."""
@@ -97,24 +105,49 @@ class GlobalSearchEngine:
 
         answer = await self._call_llm_reduce(reduce_prompt, intermediate_insights, query)
 
+        retrieval_trace = {
+            "mode": "global",
+            "communities_evaluated": len(communities),
+            "citations_count": len(citations)
+        }
+
         return QueryResponse(
             query=query,
             mode_used="global",
             answer=answer,
             citations=citations,
-            confidence=0.95
+            confidence=0.95,
+            retrieval_trace=retrieval_trace
         )
 
     async def _call_llm_reduce(self, prompt: str, intermediate_insights: List[str], query: str) -> str:
-        """Synthesize global answer using Ollama or structured fallback."""
+        """Synthesize global answer using LLM (OpenAI-compatible or local Ollama) or structured fallback."""
+        if self.llm_provider == "openai_compatible":
+            from driftgraph.extract.api_client import call_chat_completion
+            from driftgraph.config import config
+            api_key = self.llm_api_key or config.llm.get_api_key()
+            ans = await call_chat_completion(
+                messages=[{"role": "user", "content": prompt}],
+                model=self.llm_model,
+                base_url=self.llm_base_url,
+                api_key=api_key,
+                temperature=self.temperature,
+                timeout=self.timeout
+            )
+            if ans:
+                return ans
+
         payload = {
             "model": self.llm_model,
             "messages": [{"role": "user", "content": prompt}],
-            "options": {"temperature": 0.2},
+            "options": {"temperature": self.temperature},
             "stream": False
         }
+        base_url = str(self.llm_base_url).rstrip("/")
+        if base_url.endswith("/v1"):
+            base_url = base_url[:-3]
         try:
-            async with httpx.AsyncClient(base_url=self.llm_base_url, timeout=45.0) as client:
+            async with httpx.AsyncClient(base_url=base_url, timeout=self.timeout) as client:
                 resp = await client.post("/api/chat", json=payload)
                 if resp.status_code == 200:
                     return resp.json().get("message", {}).get("content", "").strip()

@@ -28,6 +28,7 @@ class QueryResponse(BaseModel):
     citations: List[Citation] = Field(default_factory=list)
     confidence: float = 1.0
     latency_ms: float = 0.0
+    retrieval_trace: Optional[Dict[str, Any]] = None
 
 
 class SearchContextItem(BaseModel):

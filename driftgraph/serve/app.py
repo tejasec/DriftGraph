@@ -11,7 +11,17 @@ from fastapi.responses import FileResponse
 import structlog
 
 from driftgraph.config import config
-from driftgraph.serve.routes import ingest_router, query_router, graph_router, export_router, status_router
+from driftgraph.serve.routes import (
+    ingest_router,
+    query_router,
+    graph_router,
+    export_router,
+    status_router,
+    voice_router,
+    classify_router,
+    notes_router,
+    analytics_router,
+)
 from driftgraph.graph.storage import SQLiteStorage
 
 logger = structlog.get_logger(__name__)
@@ -20,6 +30,7 @@ logger = structlog.get_logger(__name__)
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Lifespan context: initialize SQLite database schema and warm models."""
+    config.validate_startup()
     logger.info("driftgraph_server_starting", host=config.server.host, port=config.server.port)
     storage = SQLiteStorage(db_path=config.database.sqlite_path)
     await storage.initialize_schema()
@@ -29,6 +40,7 @@ async def lifespan(app: FastAPI):
 
 def create_app() -> FastAPI:
     """FastAPI application factory."""
+    config.validate_startup()
     app = FastAPI(
         title="DriftGraph API",
         description="Local-First GraphRAG Knowledge Graph Service",
@@ -51,6 +63,10 @@ def create_app() -> FastAPI:
     app.include_router(graph_router)
     app.include_router(export_router)
     app.include_router(status_router)
+    app.include_router(voice_router)
+    app.include_router(classify_router)
+    app.include_router(notes_router)
+    app.include_router(analytics_router)
 
     # Health check
     @app.get("/health")
@@ -65,6 +81,9 @@ def create_app() -> FastAPI:
     frontend_dir = Path(__file__).resolve().parent.parent.parent / "frontend"
     if frontend_dir.exists():
         app.mount("/static", StaticFiles(directory=str(frontend_dir)), name="static")
+        assets_dir = frontend_dir / "assets"
+        assets_dir.mkdir(parents=True, exist_ok=True)
+        app.mount("/assets", StaticFiles(directory=str(assets_dir)), name="assets")
 
         @app.get("/")
         async def serve_index():

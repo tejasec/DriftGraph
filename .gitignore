@@ -1,9 +1,12 @@
 .aider*
 
 # Virtual environments
+.venv
 .venv/
 venv/
 env/
+data/ocr_cache/
+data/uploads/
 
 # Python caches
 __pycache__/
@@ -24,6 +27,10 @@ data/*.db-*
 data/*.index
 data/*.npy
 data/exports/
+!data/driftgraph.db
+!data/faiss.index
+!data/faiss.meta.npy
+!data/faiss.vec.npy
 
 # Env / secrets
 .env

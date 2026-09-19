@@ -152,7 +152,7 @@ class KnowledgeGraphBuilder:
         """Convert Knowledge Graph to Cytoscape.js compatible JSON format."""
         cy_nodes = []
         for n in nodes:
-            cy_nodes.append({
+            node_payload: Dict[str, Any] = {
                 "data": {
                     "id": n.id,
                     "label": n.name,
@@ -162,7 +162,10 @@ class KnowledgeGraphBuilder:
                     "community": n.community_id if n.community_id is not None else 0,
                     "community_levels": n.community_levels
                 }
-            })
+            }
+            if n.layout_x is not None and n.layout_y is not None:
+                node_payload["position"] = {"x": n.layout_x, "y": n.layout_y}
+            cy_nodes.append(node_payload)
 
         cy_edges = []
         for e in edges:

@@ -35,3 +35,4 @@ class ExtractionConfig(BaseModel):
     temperature: float = 0.1
     timeout: int = 120
     max_retries: int = 3
+    api_key: Optional[str] = None

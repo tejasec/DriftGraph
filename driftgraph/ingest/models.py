@@ -11,6 +11,7 @@ class NoteMetadata(BaseModel):
     tags: List[str] = Field(default_factory=list)
     date: Optional[str] = None
     source_file: str
+    source_type: str = "ocr"
     extra: Dict[str, Any] = Field(default_factory=dict)
 
 

@@ -56,6 +56,41 @@ class VectorIndex:
         else:
             self.vectors = np.vstack([self.vectors, normalized_vecs])
 
+    def remove_ids(self, ids: List[str]):
+        """Remove vectors matching the given IDs and rebuild FAISS index."""
+        if not ids or self.vectors is None or len(self.index_to_id) == 0:
+            return
+
+        remove_set = set(ids)
+        surviving_pairs = [
+            (idx, item_id)
+            for idx, item_id in sorted(self.index_to_id.items())
+            if item_id not in remove_set
+        ]
+
+        if len(surviving_pairs) == len(self.index_to_id):
+            return  # No target IDs found
+
+        surviving_indices = [idx for idx, _ in surviving_pairs]
+        surviving_ids = [item_id for _, item_id in surviving_pairs]
+
+        if surviving_indices:
+            surviving_vecs = self.vectors[surviving_indices]
+        else:
+            surviving_vecs = np.empty((0, self.dimension), dtype=np.float32)
+
+        # Re-initialize index and metadata
+        self.id_to_index = {}
+        self.index_to_id = {}
+        self.vectors = None
+        self._init_faiss()
+
+        if len(surviving_ids) > 0 and len(surviving_vecs) > 0:
+            self.add(surviving_ids, surviving_vecs)
+
+        if self.index_path:
+            self.save()
+
     def search(self, query_vector: np.ndarray, top_k: int = 5) -> List[Tuple[str, float]]:
         """Search top_k closest items given a query vector. Returns [(id, score)]."""
         if self.vectors is None or len(self.index_to_id) == 0:

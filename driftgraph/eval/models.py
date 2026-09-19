@@ -12,6 +12,7 @@ class StageMetrics(BaseModel):
     peak_rss_mb: float
     cpu_percent: float
     items_processed: int = 0
+    per_page_latency_ms: Optional[float] = None
     extra: Dict[str, Any] = Field(default_factory=dict)
 
 

@@ -17,6 +17,7 @@ class CommunityDetector:
         self.resolution = resolution
         self.min_community_size = min_community_size
         self.max_levels = max_levels
+        self.last_algorithm: Optional[str] = None
 
     def detect_communities(self, graph: nx.Graph) -> Tuple[List[Community], Dict[str, Dict[int, int]]]:
         """
@@ -106,6 +107,7 @@ class CommunityDetector:
                     partitions_by_level.append(partition)
                     used_algorithm = "connected_components"
 
+        self.last_algorithm = used_algorithm
         logger.info("community_detection_method", algorithm=used_algorithm)
 
         # Build Level 0 (Coarse) Communities

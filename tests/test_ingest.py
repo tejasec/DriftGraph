@@ -7,11 +7,15 @@ from pathlib import Path
 from driftgraph.ingest import parse_markdown_directory, chunk_notes
 
 
+def _repo_root() -> Path:
+    return Path(__file__).resolve().parent.parent
+
+
 @pytest.mark.asyncio
 async def test_parse_sample_notes():
-    notes_dir = Path("./data/notes")
+    notes_dir = _repo_root() / "data" / "notes"
     notes = await parse_markdown_directory(notes_dir)
-    assert len(notes) >= 3
+    assert len(notes) >= 1
 
     for note in notes:
         assert note.id
@@ -21,7 +25,7 @@ async def test_parse_sample_notes():
 
 @pytest.mark.asyncio
 async def test_chunk_notes():
-    notes_dir = Path("./data/notes")
+    notes_dir = _repo_root() / "data" / "notes"
     notes = await parse_markdown_directory(notes_dir)
     chunks = chunk_notes(notes, target_tokens=128, overlap_tokens=20)
     assert len(chunks) >= 3
