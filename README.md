@@ -149,17 +149,22 @@ cd DriftGraph
 
 **Using `uv` (Recommended):**
 ```bash
+uv python install 3.12      # downloads 3.12 if you don't have it
+uv sync --python 3.12
+
+uv python pin 3.12          # writes a .python-version file
 uv sync
 ```
 
 **Using standard `pip`:**
 ```bash
-python3 -m venv .venv
+python3.12 -m venv .venv
 source .venv/bin/activate
 pip install -e ".[dev]"
 
 # for Windows
-py -m venv .venv
+py -0                        # list installed Python versions
+py -3.12 -m venv .venv
 .venv\Scripts\Activate.ps1
 pip install -e ".[dev]"
 ```
