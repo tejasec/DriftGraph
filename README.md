@@ -141,7 +141,7 @@ DriftGraph is designed to run effortlessly on any local machine. You can use loc
 
 #### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/drift-graph.git
+git clone https://github.com/tejasec/DriftGraph.git
 cd drift-graph
 ```
 
