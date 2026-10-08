@@ -352,6 +352,13 @@ DriftGraph is continuously benchmarked across four dimensions:
 
 ---
 
+## Screenshots
+
+![[2026-10-09 03.28.54 localhost 5f171eb2f905.jpg]]
+![[2026-10-09 03.29.47 localhost 776b4675c869.jpg]]
+![[2026-10-09 03.30.18 localhost e15a53974021.jpg]]
+
+
 ## 🚀 Roadmap & Future Scope
 
 - [x] Obsidian-style 2D galaxy canvas with Fermat sunflower spiral layout and Quadtree hit-testing.
