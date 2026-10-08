@@ -354,9 +354,17 @@ DriftGraph is continuously benchmarked across four dimensions:
 
 ## Screenshots
 
-![[2026-10-09 03.28.54 localhost 5f171eb2f905.jpg]]
-![[2026-10-09 03.29.47 localhost 776b4675c869.jpg]]
-![[2026-10-09 03.30.18 localhost e15a53974021.jpg]]
+<p align="center">
+  <img src="images/2026-10-09%2003.28.54%20localhost%205f171eb2f905.jpg" alt="DriftGraph landing page" width="900">
+</p>
+
+<p align="center">
+  <img src="images/2026-10-09%2003.29.47%20localhost%20776b4675c869.jpg" alt="DriftGraph graph explorer" width="900">
+</p>
+
+<p align="center">
+  <img src="images/2026-10-09%2003.30.18%20localhost%20e15a53974021.jpg" alt="DriftGraph workspace" width="900">
+</p>
 
 
 ## 🚀 Roadmap & Future Scope
