@@ -77,17 +77,26 @@ def create_app() -> FastAPI:
             "version": config.app.version
         }
 
-    # Static frontend files
+    # Static frontend files (prefers compiled dist/ if built, falls back to frontend/)
     frontend_dir = Path(__file__).resolve().parent.parent.parent / "frontend"
+    dist_dir = frontend_dir / "dist"
+    serving_dir = dist_dir if (dist_dir / "index.html").exists() else frontend_dir
+
     if frontend_dir.exists():
         app.mount("/static", StaticFiles(directory=str(frontend_dir)), name="static")
-        assets_dir = frontend_dir / "assets"
+        assets_dir = serving_dir / "assets"
         assets_dir.mkdir(parents=True, exist_ok=True)
+        if serving_dir != frontend_dir:
+            legacy_js = frontend_dir / "assets" / "js"
+            target_js = assets_dir / "js"
+            if legacy_js.exists() and not target_js.exists():
+                import shutil
+                shutil.copytree(legacy_js, target_js)
         app.mount("/assets", StaticFiles(directory=str(assets_dir)), name="assets")
 
         @app.get("/")
         async def serve_index():
-            index_path = frontend_dir / "index.html"
+            index_path = serving_dir / "index.html"
             if index_path.exists():
                 return FileResponse(str(index_path))
             return {"message": "Frontend index.html not found."}

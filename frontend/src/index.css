@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #080B12;
+  --bg-soft: #0C111C;
+  --panel: #111726;
+  --panel-2: #151C2E;
+  --border: #212B41;
+  --border-soft: #1A2233;
+  --text: #E9ECF6;
+  --text-dim: #9AA3BC;
+  --text-faint: #5D6683;
+
+  --teal: #2FD9C4;
+  --teal-dim: #1A6E63;
+  --violet: #A98CFB;
+  --violet-dim: #5C4B96;
+  --amber: #F2B84B;
+  --amber-dim: #8A6620;
+  --rose: #FB7BA6;
+  --rose-dim: #8A3F5C;
+  --blue: #5B8DEF;
+  --cyan: #38BDF8;
+
+  --accent: var(--teal);
+  --danger: #F16565;
+
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+html.light {
+  --bg: #F3F4FA;
+  --bg-soft: #EAECF5;
+  --panel: #FFFFFF;
+  --panel-2: #F6F7FC;
+  --border: #DEE1EE;
+  --border-soft: #E8EAF4;
+  --text: #141827;
+  --text-dim: #5C6480;
+  --text-faint: #9198B0;
+  --teal-dim: #BFF1E9;
+  --violet-dim: #E4DAFE;
+  --amber-dim: #FBE6BC;
+  --rose-dim: #FCD9E5;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+}
+
+/* Background grid dot matrix */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 26px 26px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+html.light body::before {
+  background-image: radial-gradient(circle, rgba(20, 24, 39, 0.05) 1px, transparent 1px);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-faint);
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Drift Graph — Notes in. Graph out.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script src="/static/assets/js/galaxy-engine.js"></script>
+  <script src="/static/assets/js/physics-controller.js"></script>
+</head>
+<body class="bg-[#080B12] text-[#E9ECF6] font-sans antialiased overflow-hidden select-none m-0 p-0">
+  <div id="root">
+    <!-- Pre-rendered fallback & zero-state indicators -->
+    <button id="btn-add-note-top" style="display:none">Add Note</button>
+    <button id="emptySidebarAddNoteBtn" onclick="createNewNote()" style="display:none">Add Note</button>
+    <button id="emptyModalAddNoteBtn" style="display:none">Add Note</button>
+  </div>
+  <script type="module" src="/main.tsx"></script>
+</body>
+</html>

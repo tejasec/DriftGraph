@@ -36,3 +36,8 @@ data/exports/
 .env
 .env.*
 !.env.example
+
+# Frontend build & dependencies
+frontend/node_modules/
+frontend/dist/
+frontend/*.tsbuildinfo
