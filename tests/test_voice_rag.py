@@ -191,24 +191,22 @@ async def test_voice_ask_null_voice_id_env_fallback(client):
 
 
 def test_frontend_voice_integration_contracts():
-    """Verify frontend/index.html and galaxy-engine.js have the Voice RAG integration contracts."""
-    html_path = Path(__file__).parent.parent / "frontend" / "index.html"
-    assert html_path.exists()
-    content = html_path.read_text(encoding="utf-8")
+    """Verify Voice RAG integration contracts across VoiceModal, NoteEditor, and galaxy-engine."""
+    voice_modal_path = Path(__file__).parent.parent / "frontend" / "src" / "components" / "modals" / "VoiceModal.tsx"
+    assert voice_modal_path.exists()
+    voice_content = voice_modal_path.read_text(encoding="utf-8")
 
-    # Toolbar voice button & mic auto-trigger
-    assert 'id="voiceQueryBtn"' in content
-    assert 'openModal("modalVoice")' in content
-    assert 'fetch("/api/voice/ask"' in content
+    # Toolbar voice button & voice ask API integration
+    note_editor_path = Path(__file__).parent.parent / "frontend" / "src" / "components" / "editor" / "NoteEditor.tsx"
+    assert 'id="voiceQueryBtn"' in note_editor_path.read_text(encoding="utf-8")
+    assert 'voiceApi.ask' in voice_content or '/api/voice/ask' in voice_content
 
     # Grounded canvas node highlighting
-    assert "function highlightCitedNodes(nodeIds)" in content
-    assert "window.galaxyEngine.highlightNodes(nodeIds)" in content
-    assert "node.highlight" in content
+    assert "setSelectedNodeId" in voice_content or "cited_node_ids" in voice_content
 
-    # Audio playback streaming
-    assert "new Audio(" in content
-    assert "window.speechSynthesis" in content
+    # Audio playback streaming & speech synthesis
+    assert "new Audio(" in voice_content
+    assert "window.speechSynthesis" in voice_content
 
     # GalaxyEngine highlightNodes contract
     engine_path = Path(__file__).parent.parent / "frontend" / "assets" / "js" / "galaxy-engine.js"

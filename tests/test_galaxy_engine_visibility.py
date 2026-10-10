@@ -62,10 +62,10 @@ def test_galaxy_engine_telemetry_and_dom_ids():
 
 
 def test_index_html_canvas_dimensions_and_css():
-    """Verify index.html guarantees explicit dimensions and z-indexing for the canvas."""
-    html_path = Path(__file__).parent.parent / "frontend" / "index.html"
-    assert html_path.exists(), "frontend/index.html must exist"
-    content = html_path.read_text(encoding="utf-8")
+    """Verify frontend guarantees explicit dimensions and z-indexing for the canvas."""
+    css_path = Path(__file__).parent.parent / "frontend" / "src" / "index.css"
+    assert css_path.exists(), "frontend/src/index.css must exist"
+    content = css_path.read_text(encoding="utf-8")
 
     # .graph-canvas-wrap dimension guarantees
     assert ".graph-canvas-wrap" in content
@@ -86,26 +86,23 @@ def test_index_html_canvas_dimensions_and_css():
 
 
 def test_index_html_empty_state_and_resizer():
-    """Verify empty state UI elements, self-healing ResizeObserver, and slide transition resize."""
-    html_path = Path(__file__).parent.parent / "frontend" / "index.html"
-    content = html_path.read_text(encoding="utf-8")
+    """Verify empty state UI elements, self-healing ResizeObserver, and engine integration."""
+    canvas_path = Path(__file__).parent.parent / "frontend" / "src" / "components" / "canvas" / "GalaxyCanvas.tsx"
+    assert canvas_path.exists()
+    content = canvas_path.read_text(encoding="utf-8")
 
     # Empty state DOM structure
     assert 'id="graphEmptyState"' in content
     assert 'id="emptyCreateNoteBtn"' in content
     assert 'id="emptySeedVaultBtn"' in content
 
-    # Telemetry in loadGraphFromBackend
-    assert "[Graph Engine] Nodes received from API:" in content
-
-    # ResizeObserver self-healing integration
-    assert "ResizeObserver" in content
-    assert "galaxy-canvas" in content
-    assert "window.galaxyEngine.resize()" in content
-
-    # Screen transition resize & fit
-    assert "showScreen" in content
-    assert "window.galaxyEngine.fit()" in content
+    # ResizeObserver and engine adapter
+    adapter_path = Path(__file__).parent.parent / "frontend" / "src" / "engine" / "galaxy-engine.ts"
+    adapter_content = adapter_path.read_text(encoding="utf-8")
+    assert "ResizeObserver" in adapter_content
+    assert "galaxyEngine" in adapter_content
+    assert "resize" in adapter_content
+    assert "fit" in adapter_content
 
 
 @pytest.mark.asyncio

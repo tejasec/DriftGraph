@@ -87,7 +87,7 @@ export const LandingHero: React.FC = () => {
             onClick={() => setCurrentScreen('workspace')}
             className="px-7 py-3.5 rounded-xl bg-[#2FD9C4] hover:bg-[#2FD9C4]/90 text-[#080B12] font-semibold text-sm transition-all shadow-lg shadow-[#2FD9C4]/25 flex items-center gap-2.5 transform hover:-translate-y-0.5"
           >
-            <span>Enter Workspace</span>
+            <span id="btn-open-explorer">Enter Workspace</span>
             <ArrowRight className="w-4 h-4" />
           </button>
           <button

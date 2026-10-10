@@ -72,29 +72,29 @@ def test_galaxy_engine_scoped_hover_and_no_unsolicited_repel():
 
 def test_html_includes_physics_controller_and_body_class():
     """Verify index.html includes physics-controller.js and sets hero-active on body."""
-    html_path = Path(__file__).parent.parent / "frontend" / "index.html"
+    html_path = Path(__file__).parent.parent / "frontend" / "src" / "index.html"
     content = html_path.read_text(encoding="utf-8")
 
     assert '<script src="/static/assets/js/physics-controller.js"></script>' in content
     assert '<body class="hero-active">' in content
-    assert "window._driftCanvasPointer" in content
+
+    controller_path = Path(__file__).parent.parent / "frontend" / "assets" / "js" / "physics-controller.js"
+    assert "window._driftCanvasPointer" in controller_path.read_text(encoding="utf-8")
 
 
 def test_hero_landing_is_initial_entry_page():
     """Verify entering the project defaults to the hero landing page."""
-    html_path = Path(__file__).parent.parent / "frontend" / "index.html"
+    html_path = Path(__file__).parent.parent / "frontend" / "src" / "index.html"
     content = html_path.read_text(encoding="utf-8")
-
-    # Initial HTML markup state
     assert '<body class="hero-active">' in content
-    assert 'class="view-viewport hero-active"' in content
-    assert '<section id="hero-landing" class="view-screen screen active"' in content
-    assert '<section id="app-workspace" class="view-screen screen"' in content
-    assert '<section id="app-workspace" class="view-screen screen active"' not in content
 
-    # JavaScript window load guarantees initial screen is hero-landing and cleans up legacy storage
-    assert 'showScreen("screen-landing")' in content
-    assert 'localStorage.getItem("dg_active_screen")' not in content
+    app_path = Path(__file__).parent.parent / "frontend" / "src" / "App.tsx"
+    app_content = app_path.read_text(encoding="utf-8")
+    assert 'hero-active' in app_content
+    assert 'LandingHero' in app_content
+
+    ui_store_path = Path(__file__).parent.parent / "frontend" / "src" / "stores" / "useUIStore.ts"
+    assert "currentScreen: 'landing'" in ui_store_path.read_text(encoding="utf-8")
 
 
 

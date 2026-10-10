@@ -246,25 +246,24 @@ async def test_soft_delete_reactivity_on_automated_links(tmp_path, monkeypatch):
 
 def test_html_slide_transition_markup_and_css():
     """
-    Verify frontend/index.html defines the required Motion Pipeline CSS
+    Verify frontend defines the required Motion Pipeline CSS
     and top-level view containers for the screen-wide slide transition.
     """
-    html_file = Path("frontend/index.html")
-    assert html_file.exists()
-    content = html_file.read_text(encoding="utf-8")
+    # 1. Viewport and motion classes in CSS
+    css_file = Path("frontend/src/index.css")
+    assert css_file.exists()
+    content_css = css_file.read_text(encoding="utf-8")
+    assert ".view-viewport" in content_css
+    assert ".view-screen" in content_css
+    assert "transition: transform 450ms cubic-bezier" in content_css
+    assert ".hero-active #hero-landing" in content_css
+    assert ".workspace-active #hero-landing" in content_css
+    assert ".hero-active #app-workspace" in content_css
+    assert ".workspace-active #app-workspace" in content_css
 
-    # 1. Viewport and motion classes
-    assert ".view-viewport" in content
-    assert ".view-screen" in content
-    assert "transition: transform 450ms cubic-bezier" in content
-
-    # 2. State classes
-    assert ".hero-active #hero-landing" in content
-    assert ".workspace-active #hero-landing" in content
-    assert ".hero-active #app-workspace" in content
-    assert ".workspace-active #app-workspace" in content
-
-    # 3. DOM Containers
-    assert 'id="hero-landing"' in content
-    assert 'id="app-workspace"' in content
-    assert 'id="btn-open-explorer"' in content
+    # 2. DOM Containers in modern React components
+    hero_comp = Path("frontend/src/components/landing/LandingHero.tsx").read_text(encoding="utf-8")
+    workspace_comp = Path("frontend/src/components/layout/WorkspaceShell.tsx").read_text(encoding="utf-8")
+    assert 'id="hero-landing"' in hero_comp
+    assert 'id="app-workspace"' in workspace_comp
+    assert 'id="btn-open-explorer"' in hero_comp
