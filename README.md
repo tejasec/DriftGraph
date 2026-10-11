@@ -389,4 +389,3 @@ DriftGraph is continuously benchmarked across four dimensions:
 DriftGraph is licensed under the [MIT License](LICENSE).
 ---
 
-*Notes in, Drift out.*

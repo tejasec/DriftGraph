@@ -1,0 +1,590 @@
+{
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/__init__.py": {
+    "mtime": 1789787485.6298656,
+    "hash": "649998a859d02f5e518b2e89efede5ea"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/build.py": {
+    "mtime": 1789787485.6298656,
+    "hash": "e0aad31b5b0e6748c8099c047bde61c8"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/config.py": {
+    "mtime": 1789787640.3134017,
+    "hash": "5c587fb3b8389c2a3b7066efd179a6af"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/main.py": {
+    "mtime": 1789789631.9384294,
+    "hash": "20c6a22b89b286226fa3217b155d9eb9"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/ingest/__init__.py": {
+    "mtime": 1789787640.317402,
+    "hash": "38d5e6e24c27803df245986e9f42f680"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/ingest/chunker.py": {
+    "mtime": 1789787640.317402,
+    "hash": "12979db399ee71ff357853216d8b353a"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/ingest/models.py": {
+    "mtime": 1789787640.317402,
+    "hash": "c0a3f5dac9bc66769a273f7defbc5396"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/ingest/ocr.py": {
+    "mtime": 1789787640.317402,
+    "hash": "d492e8f58e583bf03ed0a99810cfdaac"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/ingest/ocr_engines.py": {
+    "mtime": 1789787640.317402,
+    "hash": "0e58e230c82f22f12a754b2fd2cf9217"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/ingest/ocr_layout.py": {
+    "mtime": 1789787640.3184018,
+    "hash": "679b87c12ff348662e4f3d7ed6f458ab"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/ingest/ocr_models.py": {
+    "mtime": 1789787640.3184018,
+    "hash": "e76642f76d24afc96a4370e07a033496"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/ingest/parser.py": {
+    "mtime": 1789787640.3194017,
+    "hash": "09bf73577792a96ec8e7fcb57af28a23"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/embed/__init__.py": {
+    "mtime": 1789787485.6298656,
+    "hash": "6f6e18762c750d1b658f013eb3438200"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/embed/base.py": {
+    "mtime": 1789787485.6298656,
+    "hash": "4630914755b1872be0242204efd70862"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/embed/baseline.py": {
+    "mtime": 1789787485.6298656,
+    "hash": "fe374a8b09652338f6834b0b7049cfbd"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/embed/models.py": {
+    "mtime": 1789787485.6298656,
+    "hash": "302bd5f61f1d770ecd3cd6f917c32b20"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/embed/sbert.py": {
+    "mtime": 1789787485.6298656,
+    "hash": "e771e0d0de95b2f6561df9bfbeae0540"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/extract/prompts.py": {
+    "mtime": 1789787485.6308658,
+    "hash": "135aa1d17316f4436a1166dd749fdf55"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/extract/__init__.py": {
+    "mtime": 1789787640.3134017,
+    "hash": "5a52f67670fce279ab1b0b7318496aff"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/extract/api_client.py": {
+    "mtime": 1789787640.3144016,
+    "hash": "d271ae54ee6607b2eb04d85ea8f15562"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/extract/models.py": {
+    "mtime": 1789787640.3144016,
+    "hash": "9f9815889c2cc06c029f8d459917d2fe"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/extract/ollama_client.py": {
+    "mtime": 1789787640.3144016,
+    "hash": "534fdb8fb8a858c4e1ae5c617f7e6240"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/extract/parser.py": {
+    "mtime": 1789787640.3144016,
+    "hash": "2d36ea77d142139337cbb7bfd60710ca"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/graph/__init__.py": {
+    "mtime": 1789787485.6308658,
+    "hash": "7afa2783af290c00d2e91d201b48388d"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/graph/dedup.py": {
+    "mtime": 1789787485.6318657,
+    "hash": "fe9509101c7b9baf77d8ea77db6e313b"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/graph/builder.py": {
+    "mtime": 1789787640.3154018,
+    "hash": "49aa06e17f122842d42484bbad815642"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/graph/communities.py": {
+    "mtime": 1789787640.3154018,
+    "hash": "2991258d22b3dc360e80798092458ec1"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/graph/layout.py": {
+    "mtime": 1789787640.3154018,
+    "hash": "c7d412121f1d0c12c0d8925de5b981c4"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/graph/models.py": {
+    "mtime": 1789787640.3164017,
+    "hash": "07195b7ece9d95ee905aedb53fd1138b"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/graph/schema.sql": {
+    "mtime": 1789787640.3164017,
+    "hash": "9e2f85998a26c63e8187320bf4efe641"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/graph/storage.py": {
+    "mtime": 1789787640.3164017,
+    "hash": "7de30184517e837d009b61424d89eb3d"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/graph/vector_store.py": {
+    "mtime": 1789787640.3164017,
+    "hash": "260ffccdac379d138eb856787d3effbc"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/summarize/__init__.py": {
+    "mtime": 1789787485.641866,
+    "hash": "c4599ebdc464b7d4a1f48b8022b6b593"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/summarize/prompts.py": {
+    "mtime": 1789787485.6458662,
+    "hash": "e42bd59f75f9d59196a7703ceda4d85a"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/summarize/map_reduce.py": {
+    "mtime": 1789787640.3244019,
+    "hash": "3882e4eebdd710eee0fc16cef0bbd9eb"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/summarize/models.py": {
+    "mtime": 1789787640.3244019,
+    "hash": "538729de93b45b7e6be326876aed48a3"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/query/__init__.py": {
+    "mtime": 1789787485.6348658,
+    "hash": "b1f1b8dd0463147f41ddac40f0a3cdd7"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/query/router.py": {
+    "mtime": 1789787485.640866,
+    "hash": "63337e74fa96ea0bdd695a5f25161c99"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/query/dual_level.py": {
+    "mtime": 1789787640.3194017,
+    "hash": "8211dd58cae8852cbf8e7fc36fe14cb4"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/query/engine.py": {
+    "mtime": 1789789591.2935874,
+    "hash": "3018002782a55a14099eda65cb135f73"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/query/global_search.py": {
+    "mtime": 1789789622.515234,
+    "hash": "120814864f894c0ed1928c243b54b758"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/query/local.py": {
+    "mtime": 1789789605.8278883,
+    "hash": "ffd9d5113d616d491afb97240b9c114a"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/query/models.py": {
+    "mtime": 1789787640.320402,
+    "hash": "4a17a1b47f289f42767a379d8aff9fbf"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/eval/__init__.py": {
+    "mtime": 1789787485.6298656,
+    "hash": "8680b822b8ebbc5a24d40b3e13f3677e"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/eval/ragas_metrics.py": {
+    "mtime": 1789787485.6298656,
+    "hash": "3b3154a91c1d54a07820080820215cc5"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/eval/ablation.py": {
+    "mtime": 1789787640.3134017,
+    "hash": "5b3354887ec369c8daf4ec7e097566c5"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/eval/benchmark.py": {
+    "mtime": 1789787640.3134017,
+    "hash": "dc91a837503ab68cc973bd0ffff8f2d5"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/eval/models.py": {
+    "mtime": 1789787640.3134017,
+    "hash": "e5e1d15155cb42f76c78a2a6d18ec2d1"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/voice/__init__.py": {
+    "mtime": 1789787485.646866,
+    "hash": "adb1bfa896d523b3ab2843557e6c1447"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/voice/elevenlabs.py": {
+    "mtime": 1789787640.3244019,
+    "hash": "1a8e90f90ace2e28c0515a4c3bfacb3b"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/voice/memory.py": {
+    "mtime": 1789787640.3244019,
+    "hash": "e98540a9b4b87960dece8d21d469b554"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/voice/models.py": {
+    "mtime": 1789787640.3244019,
+    "hash": "9603bfb0c588e368a963eb118202723f"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/voice/router.py": {
+    "mtime": 1789788707.9981315,
+    "hash": "326fcb0ff3478018afa540bc6262af1d"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/voice/transcriber.py": {
+    "mtime": 1789787640.325402,
+    "hash": "35e18652604a55170739da1312f6f448"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/serve/__init__.py": {
+    "mtime": 1789787485.640866,
+    "hash": "0370e3d0282d569fea28fc9cdd100404"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/serve/__main__.py": {
+    "mtime": 1789787640.320402,
+    "hash": "788a42a71e9006f5d940a0c190d75fff"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/serve/app.py": {
+    "mtime": 1791604824.4785495,
+    "hash": "4d37c9469d5d395e090e7da997b217ee"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/serve/routes/__init__.py": {
+    "mtime": 1789787640.3214018,
+    "hash": "023aa0a181b113ff866af2dc04487bc9"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/serve/routes/analytics.py": {
+    "mtime": 1789787640.3214018,
+    "hash": "ce5681b582f17787878c4a32f6f77638"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/serve/routes/classify.py": {
+    "mtime": 1789787640.3214018,
+    "hash": "245c949e306c5bad367090d612b27808"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/serve/routes/export.py": {
+    "mtime": 1789787640.3214018,
+    "hash": "40672d8868ac1f2b13eb882c9c9e543e"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/serve/routes/graph.py": {
+    "mtime": 1789787640.3214018,
+    "hash": "0dfaa140ec1dcc53b0826ec4e48465a3"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/serve/routes/ingest.py": {
+    "mtime": 1789788886.8534615,
+    "hash": "e9de55ca7d7104603e81fb0c4ef23ad5"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/serve/routes/notes.py": {
+    "mtime": 1789787640.322402,
+    "hash": "0ca57e51675bc830682a7a42caa5fddd"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/serve/routes/query.py": {
+    "mtime": 1789789625.0812871,
+    "hash": "21d0cad1659fc4dd17d48884a04abf5a"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/serve/routes/status.py": {
+    "mtime": 1789787640.323402,
+    "hash": "0fb9d807b0b1a4b90ce2a0205ff9bfd3"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/serve/routes/voice.py": {
+    "mtime": 1789787640.323402,
+    "hash": "790a7f1e0d7aa8fac3b1b18f381a0f88"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/classifier/__init__.py": {
+    "mtime": 1789787640.313207,
+    "hash": "01b5bd71fae65a42c7822a3ab803248b"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/classifier/models.py": {
+    "mtime": 1789787640.313207,
+    "hash": "b54e9cd6edfdad6cb2196c01f7e41e82"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/classifier/rule_based.py": {
+    "mtime": 1789787640.313207,
+    "hash": "e6ed734ea7e0f3e8e1ec353f3214deca"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/analytics/__init__.py": {
+    "mtime": 1789787640.313207,
+    "hash": "560dc7acac2ea5b8c2294f1ae6a6599a"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/analytics/graph_analytics.py": {
+    "mtime": 1789787640.313207,
+    "hash": "bc4d8af9ba4a810011d059152027ce17"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/analytics/models.py": {
+    "mtime": 1789787640.313207,
+    "hash": "b5ca27824fda5e62a6d2dc31b38faa61"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/sources/__init__.py": {
+    "mtime": 1789787640.323402,
+    "hash": "c8b109aafad78aecc226672613a2722f"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/sources/templates.py": {
+    "mtime": 1789787640.323402,
+    "hash": "e249c182c5dc24373d66ddb3ef3442fb"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/driftgraph/sources/web_scraper.py": {
+    "mtime": 1789787640.323402,
+    "hash": "22182e24f33b0239745889581e999ae8"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/tests/__init__.py": {
+    "mtime": 1789787485.6628664,
+    "hash": "a9fda51831ced5484282d9cbb43daa59"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/tests/test_embed.py": {
+    "mtime": 1789787485.6648664,
+    "hash": "5944a3c6cd3ee7edf1e35d9c8ea48555"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/tests/test_extract.py": {
+    "mtime": 1789787485.6648664,
+    "hash": "c2228d2cb822b4a3ccb4f6d2729dd979"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/tests/test_query.py": {
+    "mtime": 1789787485.6688666,
+    "hash": "736577f0ecc9b162d3968e841d604bf1"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/tests/test_api.py": {
+    "mtime": 1789787640.328402,
+    "hash": "01659c8c5da596570e751cde6f9250cc"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/tests/test_auto_linking.py": {
+    "mtime": 1791607217.159448,
+    "hash": "d9b2c25ff3d3ceb3423d0ce3b95cd1ba"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/tests/test_deletion.py": {
+    "mtime": 1789787640.328402,
+    "hash": "265b8b05a14432ad7bfaa03cb9819158"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/tests/test_demo_mode.py": {
+    "mtime": 1789787640.328402,
+    "hash": "c49ac5ee1ed1d25ebd9d15ae03989061"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/tests/test_dual_level.py": {
+    "mtime": 1789787640.328402,
+    "hash": "ff65c46d1bafe5253543cacca566d456"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/tests/test_features.py": {
+    "mtime": 1789787640.329402,
+    "hash": "4de75bee5c059666904144d82e407663"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/tests/test_galaxy_engine_visibility.py": {
+    "mtime": 1791607327.6395524,
+    "hash": "1452fba39d93796c87b85784383ef42c"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/tests/test_graph.py": {
+    "mtime": 1789787640.329402,
+    "hash": "7257b3e05b87cbaaa03efc4e552896cc"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/tests/test_ingest.py": {
+    "mtime": 1789787640.329402,
+    "hash": "18bb0609696e53ad64ce48aa5b41eff6"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/tests/test_layout.py": {
+    "mtime": 1789787640.329402,
+    "hash": "1b3807a3d68a1bd3d7cc306ff86826a9"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/tests/test_ocr.py": {
+    "mtime": 1789788855.1508598,
+    "hash": "acbcac9502ec0951a9e1914a72a9f212"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/tests/test_scoped_physics.py": {
+    "mtime": 1791607246.7127168,
+    "hash": "95ba6220aeddd0c121ea4dfa030b1dd0"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/tests/test_strict_graph_pipeline.py": {
+    "mtime": 1789787640.3304021,
+    "hash": "8d7cea61001cb2cc2a1fd377c646da2d"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/tests/test_voice_rag.py": {
+    "mtime": 1791607274.2509854,
+    "hash": "8d19e05a97d5c99e2959bbcc173e0031"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/tests/test_zero_state_creation.py": {
+    "mtime": 1789787640.331402,
+    "hash": "a57eafb33138867c25a1eb11bb887520"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/frontend/vite.config.ts": {
+    "mtime": 1791604225.8145628,
+    "hash": "9a47ae9b647384f35db95d238d4c1790"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/frontend/vendor/cytoscape.min.js": {
+    "mtime": 1789787485.6558664,
+    "hash": "93ddd8e884aca86e0ee5b09eb0c558a1"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/frontend/vendor/marked.min.js": {
+    "mtime": 1789787485.6618664,
+    "hash": "e04ae0bf88da292e65e1e677394f6058"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/frontend/assets/js/galaxy-engine.js": {
+    "mtime": 1789787640.326697,
+    "hash": "1b0f9e4d4ec4805dd0aa1eeda55647cd"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/frontend/assets/js/graph-worker.js": {
+    "mtime": 1789787640.3272786,
+    "hash": "499a8ad910ac689fdf8e32fb65ef930b"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/frontend/assets/js/physics-controller.js": {
+    "mtime": 1789787640.3272786,
+    "hash": "38ce6244be75a72c39cb1348d101c593"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/frontend/assets/js/physics.worker.js": {
+    "mtime": 1789787640.3272786,
+    "hash": "88f90f39b1e67f68f26f823978511f11"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/frontend/src/App.tsx": {
+    "mtime": 1791607173.034086,
+    "hash": "a9343a560a455314da4f4795786840c3"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/frontend/src/main.tsx": {
+    "mtime": 1791604660.216213,
+    "hash": "aff414f659fec98c391c2c151f44864c"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/frontend/src/types/graph.ts": {
+    "mtime": 1791604260.8102462,
+    "hash": "7f3aeb9d258004176a9bd3cfd1d856d2"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/frontend/src/types/notes.ts": {
+    "mtime": 1791604275.5255346,
+    "hash": "30f4e90b917e8dfb19e7806e085a5b7e"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/frontend/src/types/analytics.ts": {
+    "mtime": 1791604303.393082,
+    "hash": "7a663fb71fb8bf3295858793500d236d"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/frontend/src/types/modals.ts": {
+    "mtime": 1791604323.1704714,
+    "hash": "60c2d5f96e44c4bdf16887c8be35a653"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/frontend/src/api/client.ts": {
+    "mtime": 1791604356.1731231,
+    "hash": "75028db4f77513cb621ebd3b10a6587d"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/frontend/src/stores/useGraphStore.ts": {
+    "mtime": 1791604366.4953275,
+    "hash": "0ebbc5bc4a1cd54612e3e8cd882239ca"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/frontend/src/stores/useNotesStore.ts": {
+    "mtime": 1791604381.511625,
+    "hash": "5f4afa32c633e923511339d8bb8eca15"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/frontend/src/stores/useUIStore.ts": {
+    "mtime": 1791604392.7828486,
+    "hash": "09c73d6d4dc6744d58d1ca62b3a6bfb0"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/frontend/src/stores/useAnalyticsStore.ts": {
+    "mtime": 1791604399.949991,
+    "hash": "b61d06c6c6a056dd9eb73308be583d83"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/frontend/src/engine/galaxy-engine.ts": {
+    "mtime": 1791604425.194493,
+    "hash": "d5f13e693fbe0fe8165d20f88facbba9"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/frontend/src/components/canvas/GalaxyCanvas.tsx": {
+    "mtime": 1791604446.3249142,
+    "hash": "c93e2161f9116a334968f8ab91408abc"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/frontend/src/components/landing/LandingHero.tsx": {
+    "mtime": 1791607165.7200308,
+    "hash": "306e5bcfbae6fe72672bbfe3e4a451ca"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/frontend/src/components/editor/NoteEditor.tsx": {
+    "mtime": 1791604489.517777,
+    "hash": "25c000472cbc88335ab106e94d2adc8f"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/frontend/src/components/tools/ToolsDrawer.tsx": {
+    "mtime": 1791604517.3803353,
+    "hash": "b2a1d9eae3010397ebce8160929ff470"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/frontend/src/components/modals/VoiceModal.tsx": {
+    "mtime": 1791604536.9747283,
+    "hash": "2e65aeb3f89bb6dff10d698b050e21bf"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/frontend/src/components/modals/OCRStudioModal.tsx": {
+    "mtime": 1791604554.0000706,
+    "hash": "c355d245868746aae0d5fe947a0f56a9"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/frontend/src/components/modals/ClassifierModal.tsx": {
+    "mtime": 1791604574.802489,
+    "hash": "729a441dfd5cbc92614ca62930d383e5"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/frontend/src/components/modals/NotesGalleryModal.tsx": {
+    "mtime": 1791604589.7617903,
+    "hash": "e9d329879448f54e83626c7991b12a08"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/frontend/src/components/modals/TemplateModal.tsx": {
+    "mtime": 1791604601.1380196,
+    "hash": "62967ad0beb8dc5da7356ef8f3f74985"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/frontend/src/components/modals/WebScraperModal.tsx": {
+    "mtime": 1791604611.167222,
+    "hash": "f246555d0e2ba01b3fb048f87f721946"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/frontend/src/components/modals/DeleteConfirmModal.tsx": {
+    "mtime": 1791604620.3294067,
+    "hash": "5596e5d07c162d18acad15cf885c939e"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/frontend/src/components/modals/CommunityReportModal.tsx": {
+    "mtime": 1791604628.466571,
+    "hash": "61c242658364cf9b3cf8a4cd8b41f64f"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/frontend/src/components/layout/WorkspaceShell.tsx": {
+    "mtime": 1791604651.6780403,
+    "hash": "67cec98e6136a55e9d3681b2ef119fb9"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/config.yaml": {
+    "mtime": 1789787640.2964013,
+    "hash": "9c8126c9765aa0393804454817029184"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/requirements.txt": {
+    "mtime": 1789787640.327402,
+    "hash": "9c33e66c7cedc7b0d9e6824b36cb3867"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/README.md": {
+    "mtime": 1791497213.1610308,
+    "hash": "075709259d93eb6f6bfc4f0404b00e34"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/data/demo_notes/dual_route_query_engine.md": {
+    "mtime": 1789787640.2974014,
+    "hash": "7c464faaecf6f6243e2f9a320fa46594"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/data/demo_notes/graphrag_architecture.md": {
+    "mtime": 1789787640.2985404,
+    "hash": "83e8a8f56043eb6ab2e88ff949a6fcf5"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/data/demo_notes/leiden_community_detection.md": {
+    "mtime": 1789787640.2985404,
+    "hash": "5b050b93d061d81a3b0c3c85da878a6a"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/data/demo_notes/local_first_principles.md": {
+    "mtime": 1789787640.2985404,
+    "hash": "843130b5aba1c1b186eeb525268f6063"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/data/demo_notes/vector_search_faiss.md": {
+    "mtime": 1789787640.2985404,
+    "hash": "ef85dcd0fc4efa50866171dda9e0fe7c"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/data/notes/untitled_note_2026-09-19.md": {
+    "mtime": 1789787640.313207,
+    "hash": "b1fb2689d67f0a186279528b0e309df6"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/data/notes/voice_summarize_the_main_themes_in_m_2026-09-19.md": {
+    "mtime": 1789787640.313207,
+    "hash": "422bce46da274d1d11e9525271b2f58a"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/data/notes/untitled_note_1789789986.md": {
+    "mtime": 1789789986.6547916,
+    "hash": "b1fb2689d67f0a186279528b0e309df6"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/DriftGraph/DriftGraph UI.html": {
+    "mtime": 1789787234.055114,
+    "hash": "ded8b441c1ada0a36c82a82887a8e4b2"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/DriftGraph/README.md": {
+    "mtime": 1789788349.8701375,
+    "hash": "3ecd26baf46a9e1a75dbb0b8be1a5cbb"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/DriftGraph/Tech Stack.md": {
+    "mtime": 1789787234.055114,
+    "hash": "b8694a16774370ea408abba0688b3fe1"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/frontend/src/index.html": {
+    "mtime": 1791607183.9891713,
+    "hash": "4a4895a268bf57a63a9189959ac3ab2f"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/data/notes/research_papers_compendium_2026-09-19.md": {
+    "mtime": 1789787640.3114016,
+    "hash": "871c498e69c48a3ce53ade6c01b34660"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/data/uploads/test_scanned_a59af1f29db9.png": {
+    "mtime": 1789678381.5283368,
+    "hash": "43353a908ae2fa43d35b3d1a2132962a"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/images/2026-10-09 03.28.54 localhost 5f171eb2f905.jpg": {
+    "mtime": 1791497072.597994,
+    "hash": "d40b3e30ff14dcd6077ec58604df824e"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/images/2026-10-09 03.29.47 localhost 776b4675c869.jpg": {
+    "mtime": 1791497072.5991235,
+    "hash": "69b27891149b30939f8b2080bffb4b41"
+  },
+  "/home/tejas/Documents/College Files/DriftGraph/AGY/Project Map/images/2026-10-09 03.30.18 localhost e15a53974021.jpg": {
+    "mtime": 1791497072.5991235,
+    "hash": "6cb312dd46e5c9f90b89457faa47c4b2"
+  }
+}
